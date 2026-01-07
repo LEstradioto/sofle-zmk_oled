@@ -60,6 +60,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        lh_delete {
+            bindings = <&kp DELETE>;
+            key-positions = <53 41 12>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
