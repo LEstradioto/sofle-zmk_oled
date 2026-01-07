@@ -26,7 +26,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_HYPERS";
             #binding-cells = <0>;
-            bindings = <&kp LG(LEFT_ALT)>, <&kp LC(LA(LS(LEFT_GUI)))>;
+            bindings = <&kp LG(LEFT_ALT)>, <&kp LC(LS(LA(LEFT_GUI)))>;
         };
     };
 
