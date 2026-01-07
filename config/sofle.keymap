@@ -28,6 +28,13 @@
             #binding-cells = <0>;
             bindings = <&kp LG(LEFT_ALT)>, <&kp LC(LS(LA(LEFT_GUI)))>;
         };
+
+        td_equal_plus_minus: td_equal_plus_minus {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_EQUAL_PLUS_MINUS";
+            #binding-cells = <0>;
+            bindings = <&kp KP_EQUAL>, <&kp KP_PLUS>, <&kp KP_MINUS>;
+        };
     };
 
     macros {
@@ -111,7 +118,7 @@
             bindings = <
 &kp F12  &kp F1       &kp F2      &kp F3         &kp F4           &kp F5                             &kp F6            &kp F7             &kp F8    &kp F9     &kp F10        &kp F11
 &trans   &trans       &trans      &kp K_CMENU    &kp PRINTSCREEN  &kp C_AC_SEARCH                    &kp PG_UP         &kp HOME           &kp UP    &kp END    &kp BACKSPACE  &kp DELETE
-&trans   &select_all  &copy_word  &replace_word  &trans           &kp CLCK                           &kp PG_DN         &kp LEFT           &kp DOWN  &kp RIGHT  &kp BACKSLASH  &trans
+&trans   &select_all  &copy_word  &replace_word  &trans           &kp CLCK                           &kp PG_DN         &kp LEFT           &kp DOWN  &kp RIGHT  &kp BACKSLASH  &td_equal_plus_minus
 &trans   &kp K_UNDO   &kp K_CUT   &kp K_COPY     &kp K_PASTE      &kp INSERT       &trans    &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans    &trans     &trans         &tog 1
                       &trans      &trans         &trans           &trans           &trans    &trans  &trans            &trans             &trans    &trans
             >;
