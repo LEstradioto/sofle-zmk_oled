@@ -62,14 +62,14 @@
         bt_1_and_back_to_layer: bt_1_and_back_to_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 1>;
+            bindings = <&bt BT_SEL 0 &tog 1>;
             label = "BT_1_AND_BACK_TO_LAYER";
         };
 
         bt_2_and_back_to_layer: bt_2_and_back_to_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 1>;
+            bindings = <&bt BT_SEL 1 &tog 1>;
             label = "BT_2_AND_BACK_TO_LAYER";
         };
     };
