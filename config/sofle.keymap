@@ -48,8 +48,6 @@
             label = "TD_TILDE_DEL_SPACE";
             #binding-cells = <0>;
             bindings = <&grave_or_tilde>, <&kp DELETE>, <&kp SPACE>;
-
-            tapping-term-ms = <120>;
         };
 
         grave_or_tilde: grave_or_tilde {
