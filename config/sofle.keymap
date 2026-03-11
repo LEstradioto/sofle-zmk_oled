@@ -47,16 +47,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_TILDE_DEL_SPACE";
             #binding-cells = <0>;
-            bindings = <&grave_or_tilde>, <&kp DELETE>, <&kp SPACE>;
-        };
-
-        grave_or_tilde: grave_or_tilde {
-            compatible = "zmk,behavior-mod-morph";
-            label = "GRAVE_OR_TILDE";
-            bindings = <&kp GRAVE>, <&kp LS(GRAVE)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp LS(GRAVE)>, <&kp GRAVE>, <&kp DELETE>, <&kp SPACE>;
         };
     };
 
