@@ -35,6 +35,20 @@
             #binding-cells = <0>;
             bindings = <&kp KP_EQUAL>, <&kp KP_PLUS>, <&kp KP_MINUS>;
         };
+
+        td_alt_to_f17: td_alt_to_f17 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ALT_TO_F17";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp F17>;
+        };
+
+        td_tilde_del_space: td_tilde_del_space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_TILDE_DEL_SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp DELETE>, <&kp SPACE>;
+        };
     };
 
     macros {
@@ -74,14 +88,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        lh_delete {
-            bindings = <&kp DELETE>;
-            key-positions = <53 41 12>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -97,11 +104,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE  &kp N1  &kp N2      &kp N3    &kp N4     &kp N5                                                      &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp ESC    &kp Q   &kp W       &kp E     &kp R      &kp T                                                       &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB    &kp A   &kp S       &kp D     &kp F      &kp G                                                       &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X       &kp C     &kp V      &kp B         &kp LG(LEFT_ALT)    &kp LS(LA(LC(LEFT_GUI)))  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &td_hypers  &kp LALT  &kp LCTRL  &kp LEFT_GUI  &kp RET             &kp SPACE                 &td_layer  &kp RCTRL  &kp RALT   &kp RGUI
+&td_tilde_del_space  &kp N1  &kp N2      &kp N3          &kp N4     &kp N5                                                      &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp ESC              &kp Q   &kp W       &kp E           &kp R      &kp T                                                       &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB              &kp A   &kp S       &kp D           &kp F      &kp G                                                       &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT            &kp Z   &kp X       &kp C           &kp V      &kp B         &kp LG(LEFT_ALT)    &kp LS(LA(LC(LEFT_GUI)))  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                             &td_hypers  &td_alt_to_f17  &kp LCTRL  &kp LEFT_GUI  &kp RET             &kp SPACE                 &td_layer  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
