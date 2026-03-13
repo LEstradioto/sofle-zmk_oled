@@ -49,6 +49,13 @@
             #binding-cells = <0>;
             bindings = <&kp LS(GRAVE)>, <&kp GRAVE>, <&kp DELETE>, <&kp SPACE>;
         };
+
+        td_del_space: td_del_space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DEL_SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp DELETE>, <&kp SPACE>;
+        };
     };
 
     macros {
@@ -88,7 +95,14 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        db_del_space {
+            bindings = <&td_del_space>;
+            key-positions = <0 1>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
