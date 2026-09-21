@@ -19,7 +19,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LAYER";
             #binding-cells = <0>;
-            bindings = <&mo 2>, <&tog 1>;
+            bindings = <&mo 2>, <&mo 1>, <&tog 1>;
         };
 
         td_hypers: td_hypers {
@@ -101,6 +101,12 @@
         db_del_space {
             bindings = <&td_del_space>;
             key-positions = <0 1>;
+        };
+
+        studio_unlock {
+            bindings = <&studio_unlock>;
+            key-positions = <42 43>;
+            timeout-ms = <60>;
         };
     };
 
