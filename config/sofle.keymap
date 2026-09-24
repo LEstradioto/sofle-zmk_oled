@@ -73,9 +73,9 @@
             bindings = <&tog NUM>, <&tog FUN>;
         };
 
-        lt_nav: lt_nav {
+        ltc: ltc {
             compatible = "zmk,behavior-hold-tap";
-            label = "LT_NAV";
+            label = "LTC";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
@@ -247,7 +247,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &lt MOUSE TAB  &lt_nav NAV F17  &lt NUM ENTER  &kp SPACE  &ht_sym SYM 0  &kp BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &ltc NAV F17  &ltc NUM ENTER  &kp SPACE  &ht_sym SYM 0  &kp BKSP  &none  &none
             >;
 
             sensor-bindings =
@@ -334,7 +334,7 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LBRC  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RBRC  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LBRC  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &td_equal_plus_minus
 &trans  &kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp PIPE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
