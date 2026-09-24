@@ -20,6 +20,7 @@
 #define FUN 6
 #define MOUSE 7
 #define SYM 8
+#define MFAST 9
 
 / {
     behaviors {
@@ -65,11 +66,30 @@
             bindings = <&kp DELETE>, <&kp SPACE>;
         };
 
-        td_corne: td_corne {
+        td_num_fun: td_num_fun {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_CORNE";
+            label = "TD_NUM_FUN";
             #binding-cells = <0>;
-            bindings = <&mo SYM>, <&tog NUM>, <&tog FUN>;
+            bindings = <&tog NUM>, <&tog FUN>;
+        };
+
+        lt_nav: lt_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_NAV";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_sym: ht_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_SYM";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&td_num_fun>;
         };
 
         hml: hml {
@@ -223,11 +243,11 @@
             display-name = "corne";
 
             bindings = <
-&to BASE    &none           &none            &none           &none            &none                                               &none   &none            &none           &none            &none           &none
-&trans   &trans          &trans           &trans          &trans           &trans                                              &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &hml LGUI A     &hml LALT S      &hml LCTRL D    &hml LSHFT F     &trans                                              &trans  &hmr LSHFT J     &hmr LCTRL K    &hmr LALT L      &hmr LGUI SEMI   &trans
-&trans   &trans          &trans           &trans          &trans           &trans      &trans      &trans                  &trans  &trans           &trans          &trans           &trans          &trans
-                       &none            &lt NAV F17        &none           &lt MOUSE TAB      &lt NUM ENTER           &kp SPACE             &td_corne       &kp BKSP        &none           &none
+&to BASE  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &none  &lt MOUSE TAB  &lt_nav NAV F17  &lt NUM ENTER  &kp SPACE  &ht_sym SYM 0  &kp BKSP  &none  &none
             >;
 
             sensor-bindings =
@@ -242,10 +262,10 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &trans  &trans
+&trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp BACKSPACE  &kp DELETE
 &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &kp LA(LEFT)  &trans  &kp LA(RIGHT)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(BSPC)  &trans  &trans
             >;
 
             sensor-bindings =
@@ -296,9 +316,9 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mmv MOVE_UP  &trans  &trans  &trans
-&trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &msc SCRL_UP  &msc SCRL_LEFT  &mmv MOVE_UP  &msc SCRL_RIGHT  &trans  &trans
+&trans  &mkp MB1  &mkp MB2  &mkp MB3  &mo MFAST  &trans  &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
@@ -315,7 +335,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp LBRC  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RBRC  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &td_equal_plus_minus
 &trans  &kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp PIPE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
@@ -325,6 +345,24 @@
                 <&inc_dec_kp C_NEXT C_PREV>;
 
             label = "sym";
+        };
+
+        mouse_fast {
+            display-name = "mouse_fast";
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &msc SCRL_UP  &msc SCRL_LEFT  &mmv MOVE(0, -1800)  &msc SCRL_RIGHT  &trans  &trans
+&trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans  &msc SCRL_DOWN  &mmv MOVE(-1800, 0)  &mmv MOVE(0, 1800)  &mmv MOVE(1800, 0)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_NEXT C_PREV>;
+
+            label = "mouse_fast";
         };
     };
 };
