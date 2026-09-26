@@ -15,8 +15,8 @@
 #define NUMPAD 1
 #define RAISE 2
 #define CORNE 3
-#define NAV 4
-#define NUM 5
+#define NUM 4
+#define NAV 5
 #define FUN 6
 #define MOUSE 7
 #define MFAST 8
@@ -89,6 +89,15 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&td_num_fun>;
+        };
+
+        ht_kp: ht_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_KP";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
         };
 
         hml: hml {
@@ -246,7 +255,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &ltc MOUSE TAB  &ltc NAV F17  &kp ENTER  &kp SPACE  &ht_num NUM 0  &kp BKSP  &none  &none
+&none  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
             >;
 
             sensor-bindings =
@@ -254,24 +263,6 @@
                 <&inc_dec_kp C_NEXT C_PREV>;
 
             label = "corne";
-        };
-
-        nav {
-            display-name = "nav";
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp BACKSPACE  &kp DELETE
-&trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &kp LA(LEFT)  &trans  &kp LA(RIGHT)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(BSPC)  &trans  &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_NEXT C_PREV>;
-
-            label = "nav";
         };
 
         num {
@@ -292,11 +283,29 @@
             label = "num";
         };
 
+        nav {
+            display-name = "nav";
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp BACKSPACE  &kp DELETE
+&trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &kp LA(LEFT)  &trans  &kp LA(RIGHT)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(BSPC)  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_NEXT C_PREV>;
+
+            label = "nav";
+        };
+
         fun {
             display-name = "fun";
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK  &trans
