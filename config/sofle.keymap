@@ -129,21 +129,21 @@
         select_all: select_all {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(A)>;
+            bindings = <&kp LG(A)>;
             label = "SELECT_ALL";
         };
 
         copy_word: copy_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LC(LS(RIGHT)) &kp LC(C)>;
+            bindings = <&kp LG(LEFT) &kp LG(LS(RIGHT)) &kp LG(C)>;
             label = "COPY_WORD";
         };
 
         replace_word: replace_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LC(LS(RIGHT)) &kp LC(V)>;
+            bindings = <&kp LG(LEFT) &kp LG(LS(RIGHT)) &kp LG(V)>;
             label = "REPLACE_WORD";
         };
 
@@ -255,7 +255,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&td_hypers  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
+&ht_kp F17 LC(LS(LA(LEFT_GUI)))  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
             >;
 
             sensor-bindings =
