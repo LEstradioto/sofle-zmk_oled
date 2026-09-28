@@ -255,7 +255,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
+&td_hypers  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
             >;
 
             sensor-bindings =
