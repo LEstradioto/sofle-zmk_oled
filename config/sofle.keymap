@@ -251,7 +251,7 @@
             display-name = "corne";
 
             bindings = <
-&to BASE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &none
+&to BASE  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -270,9 +270,9 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LBRC  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS  &trans
-&trans  &kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &td_equal_plus_minus
-&trans  &kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp UNDER  &trans  &trans  &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER  &trans
+&trans  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)  &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS  &trans
+&trans  &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &td_equal_plus_minus
+&trans  &kp LBRC  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans  &trans  &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N0  &trans  &trans
             >;
 
