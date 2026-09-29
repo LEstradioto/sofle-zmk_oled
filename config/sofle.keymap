@@ -101,6 +101,38 @@
             bindings = <&kp>, <&kp>;
         };
 
+        td_esc_fun: td_esc_fun {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ESC_FUN";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&tog FUN>;
+        };
+
+        td_bksp_num: td_bksp_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_BKSP_NUM";
+            #binding-cells = <0>;
+            bindings = <&kp BKSP>, <&tog NUM>;
+        };
+
+        ht_f17_fun: ht_f17_fun {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_F17_FUN";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&td_esc_fun>;
+        };
+
+        ht_nav_num: ht_nav_num {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_NAV_NUM";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&td_bksp_num>;
+        };
+
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -306,7 +338,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&ht_kp F17 LC(LS(LA(LEFT_GUI)))  &kp F17  &ltc MOUSE TAB  &ltc NUM F17  &kp ENTER  &kp SPACE  &ht_num NAV 0  &ht_kp DELETE BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &ht_f17_fun F17 0  &kp ENTER  &kp SPACE  &ht_nav_num NAV 0  &ltc SYM DEL  &none  &none
             >;
 
             sensor-bindings =
