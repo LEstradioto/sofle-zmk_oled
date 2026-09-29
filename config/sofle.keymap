@@ -348,7 +348,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &ltc MOUSE TAB  &ltc F17 ESC  &ltc FUN ENTER  &ltc NUM SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &kp F17  &ltc FUN ENTER  &ltc NUM SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
             >;
 
             sensor-bindings =
