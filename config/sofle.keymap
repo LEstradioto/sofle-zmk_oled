@@ -17,10 +17,9 @@
 #define CORNE 3
 #define NUM 4
 #define NAV 5
-#define FUN 6
-#define MOUSE 7
-#define MFAST 8
-#define SYM 9
+#define MOUSE 6
+#define MFAST 7
+#define SYM 8
 
 / {
     behaviors {
@@ -66,13 +65,6 @@
             bindings = <&kp DELETE>, <&kp SPACE>;
         };
 
-        td_num_fun: td_num_fun {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_NUM_FUN";
-            #binding-cells = <0>;
-            bindings = <&tog NUM>, <&tog FUN>;
-        };
-
         ltc: ltc {
             compatible = "zmk,behavior-hold-tap";
             label = "LTC";
@@ -83,15 +75,6 @@
             bindings = <&mo>, <&kp>;
         };
 
-        ht_num: ht_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT_NUM";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&td_num_fun>;
-        };
-
         ht_kp: ht_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_KP";
@@ -99,38 +82,6 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
-        };
-
-        td_esc_fun: td_esc_fun {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_ESC_FUN";
-            #binding-cells = <0>;
-            bindings = <&kp ESC>, <&tog FUN>;
-        };
-
-        td_bksp_num: td_bksp_num {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_BKSP_NUM";
-            #binding-cells = <0>;
-            bindings = <&kp BKSP>, <&tog NUM>;
-        };
-
-        ht_f17_fun: ht_f17_fun {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT_F17_FUN";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&td_esc_fun>;
-        };
-
-        ht_nav_num: ht_nav_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT_NAV_NUM";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&td_bksp_num>;
         };
 
         hml: hml {
@@ -214,6 +165,7 @@
             key-positions = <13 14>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_close_tab {
@@ -221,6 +173,7 @@
             key-positions = <14 15>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_reload {
@@ -228,6 +181,7 @@
             key-positions = <15 16>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_select_all {
@@ -235,6 +189,7 @@
             key-positions = <25 26>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_save {
@@ -242,6 +197,7 @@
             key-positions = <26 27>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_find_files {
@@ -249,6 +205,7 @@
             key-positions = <27 28>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_undo {
@@ -256,6 +213,7 @@
             key-positions = <25 37>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_cut {
@@ -263,6 +221,7 @@
             key-positions = <38 39>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_copy {
@@ -270,6 +229,7 @@
             key-positions = <39 40>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
 
         combo_paste {
@@ -277,6 +237,7 @@
             key-positions = <40 41>;
             timeout-ms = <30>;
             layers = <CORNE>;
+            require-prior-idle-ms = <100>;
         };
     };
 
@@ -358,7 +319,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &ltc MOUSE TAB  &kp F17  &ltc FUN ENTER  &ltc NUM SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &kp F17  &ltc NUM ENTER  &kp SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
             >;
 
             sensor-bindings =
@@ -390,7 +351,7 @@
             display-name = "nav";
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp F19  &kp F7  &kp F8  &kp F9  &kp F10
 &trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp BACKSPACE  &kp DELETE
 &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
 &trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &kp LA(LEFT)  &trans  &kp LA(RIGHT)  &trans  &trans
@@ -402,24 +363,6 @@
                 <&inc_dec_kp C_NEXT C_PREV>;
 
             label = "nav";
-        };
-
-        fun {
-            display-name = "fun";
-
-            bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
-&kp F19  &sk LGUI  &sk LALT  &sk LCTRL  &trans  &trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN  &trans
-&sk LSHFT  &trans  &trans  &trans  &trans  &trans  &kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &to CORNE  &trans  &trans  &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_NEXT C_PREV>;
-
-            label = "fun";
         };
 
         mouse {
