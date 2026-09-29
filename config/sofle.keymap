@@ -20,6 +20,7 @@
 #define MOUSE 6
 #define MFAST 7
 #define SYM 8
+#define FUN 9
 
 / {
     behaviors {
@@ -239,6 +240,30 @@
             layers = <CORNE>;
             require-prior-idle-ms = <100>;
         };
+
+        combo_next_tab {
+            bindings = <&kp LC(TAB)>;
+            key-positions = <16 17>;
+            timeout-ms = <30>;
+            layers = <CORNE>;
+            require-prior-idle-ms = <100>;
+        };
+
+        combo_prev_tab {
+            bindings = <&kp LC(LS(TAB))>;
+            key-positions = <37 38>;
+            timeout-ms = <30>;
+            layers = <CORNE>;
+            require-prior-idle-ms = <100>;
+        };
+
+        combo_fun_layer {
+            bindings = <&mo FUN>;
+            key-positions = <29 30>;
+            timeout-ms = <50>;
+            layers = <CORNE>;
+            require-prior-idle-ms = <100>;
+        };
     };
 
     keymap {
@@ -351,7 +376,7 @@
             display-name = "nav";
 
             bindings = <
-&trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp F19  &kp F7  &kp F8  &kp F9  &kp F10
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &select_all  &copy_word  &replace_word  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &kp BACKSPACE  &kp DELETE
 &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
 &trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans  &trans  &kp LA(LEFT)  &trans  &kp LA(RIGHT)  &trans  &trans
@@ -406,9 +431,9 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp AMPS  &kp ASTRK  &kp LPAR  &kp UNDER  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp EXCL  &kp AT  &kp HASH  &kp RBRC
+&trans  &kp LA(I)  &kp LA(GRAVE)  &trans  &trans  &trans  &trans  &kp AMPS  &kp ASTRK  &kp LPAR  &kp UNDER  &trans
+&trans  &kp GRAVE  &kp LS(GRAVE)  &kp BACKSLASH  &kp DQT  &kp COLON  &trans  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &trans
+&trans  &kp LBRC  &kp RBRC  &kp LA(C)  &kp LA(N)  &kp LA(E)  &trans  &trans  &trans  &kp EXCL  &kp AT  &kp HASH  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RPAR  &trans  &trans
             >;
 
@@ -417,6 +442,24 @@
                 <&inc_dec_kp C_NEXT C_PREV>;
 
             label = "sym";
+        };
+
+        fun {
+            display-name = "fun";
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F19  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN  &trans
+&trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_NEXT C_PREV>;
+
+            label = "fun";
         };
     };
 };
