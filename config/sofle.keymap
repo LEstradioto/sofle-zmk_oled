@@ -76,6 +76,15 @@
             bindings = <&mo>, <&kp>;
         };
 
+        ltc_en: ltc_en {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LTC_EN";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
         ht_kp: ht_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_KP";
@@ -217,6 +226,13 @@
             require-prior-idle-ms = <100>;
         };
 
+        combo_sticky_sym {
+            bindings = <&sl SYM>;
+            key-positions = <37 25>;
+            timeout-ms = <30>;
+            layers = <CORNE>;
+        };
+
         combo_undo {
             bindings = <&kp LG(Z)>;
             key-positions = <37 38>;
@@ -352,7 +368,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &ltc MOUSE TAB  &kp F17  &ltc NUM ENTER  &kp SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &kp F17  &ltc_en NUM ENTER  &kp SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
             >;
 
             sensor-bindings =
