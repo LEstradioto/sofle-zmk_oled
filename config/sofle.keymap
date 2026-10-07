@@ -85,6 +85,16 @@
             bindings = <&mo>, <&kp>;
         };
 
+        ht_cmd: ht_cmd {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_CMD";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            hold-while-undecided;
+            bindings = <&kp>, <&sk>;
+        };
+
         ht_kp: ht_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_KP";
@@ -368,7 +378,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &trans  &trans  &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMI  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&none  &none  &ltc MOUSE TAB  &kp F17  &ltc_en NUM ENTER  &kp SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
+&none  &none  &ltc MOUSE TAB  &ht_cmd F17 LGUI  &ltc_en NUM ENTER  &kp SPACE  &ltc NAV DEL  &ltc SYM BKSP  &none  &none
             >;
 
             sensor-bindings =
